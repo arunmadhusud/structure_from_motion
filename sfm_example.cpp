@@ -67,14 +67,15 @@ int main(int argc, char **argv)
 
         namedWindow("img", WINDOW_NORMAL);
 
-        std::string dataPath = "/home/arun/my_github/structure_from_motion/south-building/"; //don't forget to add '/' at the end
+        //take datapath from command line
+        std::string dataPath = argv[1];
         std::string imgBasePath = dataPath + "images/";
         std::string imgPrefix = "P1180";
         std::string imgFileType = ".JPG";
         int imgStartIndex = 141;
         int imgEndIndex = 225;
 
-
+        std::cout << "Reading images from " << imgBasePath << std::endl;
         for (int imgIndex = imgStartIndex; imgIndex <= imgEndIndex; imgIndex++)
         {
             std::string imgFullFilename = imgBasePath + imgPrefix + std::to_string(imgIndex) + imgFileType;
@@ -95,6 +96,7 @@ int main(int argc, char **argv)
                 std::cout << "Image " << imgFullFilename << " is empty!" << std::endl;
             }
         }
+        std::cout << "Number of images = " << SFM.img_pose.size() << std::endl;
 
 
         // Match features between all images

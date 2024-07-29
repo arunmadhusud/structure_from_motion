@@ -8,24 +8,25 @@ This is a simple implementation of the Structure from Motion (SfM) algorithm usi
 4. Triangulation
 5. Bundle adjustment (yet to be implemented)
 
-The dataset used in this implementation is the South Building dataset from COLMAP. The dataset can be found at [COLMAP Datasets](https://colmap.github.io/datasets.html). The camera intrinsic parameters are provided with the dataset.
+The dataset used in this implementation is the South Building dataset from COLMAP. The dataset can be found at [COLMAP Datasets](https://colmap.github.io/datasets.html).
+The camera intrinsic parameters are provided with the dataset.
 
 The reconstructed point cloud is visualized using the  Open3D library in Python. 
 
 ## Installation
 
 1. Clone the repository
-2. Unzip the dataset `south-building.zip` in the same directory
-3. Run the following commands:
+2. Download and Unzip the dataset `south-building.zip` in the same directory. I have used a subset of the dataset.
+3. Run the following commands (Don't forget to add "/" at the end of the path): 
 
     ```sh
     mkdir build
     cd build
     cmake ..
     make
-    ./sfm
+    ./sfm "path_to_dataset/"
     ```
-
+  
 4. Run `pcd_vis.py` to visualize the point cloud
 
 ## Results
